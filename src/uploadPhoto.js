@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Modal, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Button, Modal, TouchableOpacity, Image, ScrollView} from 'react-native';
 import { StyleSheet } from 'react-native';
 //import Modal from 'react-native-modal';
 
@@ -171,6 +171,18 @@ const UploadPhotoModale = ({ isVisible, onClose }) => {
         <Button style={styles.button} title="Submit" onPress={handleSubmit} />
       </View>
     </View>
+    
+    <View style = {styles.selectedImagesContainer}>
+      {selectedPhotos.map((base64String, index) => (
+        <View key={index}>
+          {/* Display each image from base64 string */}
+          <Image
+            source={{ uri: `data:image/png;base64,${base64String}` }}
+            style={{ width: 50, height: 50, margin: 5 }}
+          />
+        </View>
+      ))}
+    </View>
   </Modal>
   );
 };
@@ -180,6 +192,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    margin: '5%'
   },
   captionText: {
     fontSize: 16,
@@ -211,6 +224,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: '5%', // Adjust the height as needed
     margin: '3%'
+  },
+  selectedImagesContainer: {
+    flexDirection: 'row',
   },
 });
 

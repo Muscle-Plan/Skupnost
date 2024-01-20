@@ -5,7 +5,7 @@ import SearchBar from './searchBar';
 import UploadPhotoModale from './uploadPhoto.js';
 
 
-const HelloWorld = () => {
+const Skupnost = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const toggleModal = () => {
@@ -16,7 +16,7 @@ const HelloWorld = () => {
     <ScrollView style={styles.scrollView}>
       <SearchBar/> 
       
-      <Button title="Open Popup" onPress={toggleModal} />
+      <Button title="NEW POST" onPress={toggleModal} />
       <UploadPhotoModale isVisible={isModalVisible} onClose={toggleModal}/>
     </ScrollView>
   );
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HelloWorld;
+export default Skupnost;
